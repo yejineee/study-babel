@@ -1,10 +1,3 @@
-# Babel Usage Guide
-
-- @babel/core, @babel/cli, Plugin, Preset, Configuration File에 대해 알아본다.
-
-
-
-
 # @babel/core - Babel의 코어 기능이 있는 모듈
 
 - 설치
@@ -24,38 +17,31 @@ npm install --save-dev @babel/core
 - 사용
     
     ```bash
-    npx babel promise-finally.js --out-dir dist
+    npx babel object-rest.js --out-dir dist
     ```
     
-    promise-finally.js 파일을 파싱하여, transformation을 적용한 파일을 dist에 저장하라는 의미이다.
+    object-rest.js 파일을 파싱하여, transformation을 적용한 파일을 dist에 저장하라는 의미이다.
     
     아직까지 어떠한 transformation을 사용하라고 명시한 plugin이나 preset이 없기 때문에, source와 output은 동일하다.
     
     ```jsx
-    new Promise((resolve, reject) => {
-      resolve('success')
-    })
-    .then((v) => {
-      console.log(`then : ${v}`);
-    })
-    .catch((v) => {
-      console.log(`catch : ${v}`);
-    })
-    .finally(() => {
-      console.log(`finally`)
-    })
+    const {a, ...rest} = {a: 'a', b :'b', 'c': 'c'};
+    console.log(a); // a
+    console.log(rest); // { b: 'b', c: 'c' }
     ```
     
     ```jsx
-    new Promise((resolve, reject) => {
-      resolve('success');
-    }).then(v => {
-      console.log(`then : ${v}`);
-    }).catch(v => {
-      console.log(`catch : ${v}`);
-    }).finally(() => {
-      console.log(`finally`);
-    });
+    const {
+      a,
+      ...rest
+    } = {
+      a: 'a',
+      b: 'b',
+      'c': 'c'
+    };
+    console.log(a); // a
+    
+    console.log(rest); // { b: 'b', c: 'c' }
     ```
     
 
@@ -67,14 +53,10 @@ plugin은 바벨에게 코드를 어떤 식으로 변환(transformation)해야�
 
 바벨의 공식 플러그인인 `@babel/plugin-proposal-object-rest-spread` 을 사용하여, 다음 파일을 변환하여 보자.
 
-```jsx
-const {a, ...rest} = {a: 'a', b :'b', 'c': 'c'};
-console.log(a); // a
-console.log(rest); // { b: 'b', c: 'c' }
-```
-
-```jsx
+```bash
+# @babel/plugin-proposal-object-rest-spread 설치
 npm install --save-dev @babel/plugin-proposal-object-rest-spread
+# 트랜스파일러 실행
 npx babel object-rest.js --out-dir dist --plugins=@babel/plugin-proposal-object-rest-spread
 ```
 
