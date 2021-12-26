@@ -6,7 +6,9 @@
         "targets": {
           "ie": "11",
           "chrome": "67"
-        }
+        },
+        "useBuiltIns": "usage",
+        "corejs": { "version": "3.20", "proposals": true }
       }
     ]
   ]
