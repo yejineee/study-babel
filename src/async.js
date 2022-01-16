@@ -1,9 +1,4 @@
 
 const getApi = async () => {
-  return new Promise((resolve) => {
-    resolve('data')
-  })
+  return fetch('http://example.com/movies.json')
 }
-
-const data = await getApi();
-console.log(data);

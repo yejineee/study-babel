@@ -16,9 +16,7 @@ var getApi = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            return _context.abrupt("return", new Promise(function (resolve) {
-              resolve('data');
-            }));
+            return _context.abrupt("return", fetch('http://example.com/movies.json'));
 
           case 1:
           case "end":
@@ -32,6 +30,3 @@ var getApi = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
-
-var data = await getApi();
-console.log(data);
