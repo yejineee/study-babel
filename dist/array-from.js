@@ -4,4 +4,4 @@ var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequ
 
 var _from = _interopRequireDefault(require("@babel/runtime-corejs3/core-js/array/from"));
 
-(0, _from["default"])(name);
+(0, _from.default)(name);

@@ -4,11 +4,11 @@ var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequ
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regenerator"));
 
-var _marked = /*#__PURE__*/_regenerator["default"].mark(idMaker);
+var _marked = /*#__PURE__*/_regenerator.default.mark(idMaker);
 
 function idMaker() {
   var index;
-  return _regenerator["default"].wrap(function idMaker$(_context) {
+  return _regenerator.default.wrap(function idMaker$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
