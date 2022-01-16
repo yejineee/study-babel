@@ -4,7 +4,9 @@ var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequ
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regenerator"));
 
-var _promise = _interopRequireDefault(require("@babel/runtime-corejs3/core-js/promise"));
+require("core-js/modules/es.object.to-string.js");
+
+require("core-js/modules/es.promise.js");
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/asyncToGenerator"));
 
@@ -14,9 +16,7 @@ var getApi = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            return _context.abrupt("return", new _promise.default(function (resolve) {
-              resolve('data');
-            }));
+            return _context.abrupt("return", fetch('http://example.com/movies.json'));
 
           case 1:
           case "end":
@@ -30,6 +30,3 @@ var getApi = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
-
-var data = await getApi();
-console.log(data);
